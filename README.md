@@ -12,12 +12,12 @@
 | first_name_kana        | string            |  null: false                          |
 | last_name_kana         | string            |  null: false                          |
 | birthday               | date              |  null: false                          |
-| buyer                  | references        |                                       |
+|                        |                   |                                       |
 |                        |                   |                                       |
 
 ### Association
 - has_many :items
-- has_one :buyer
+- has_many :buyers
 
 * itemsテーブル
 
@@ -25,21 +25,35 @@
 |------------------------|-------------------|---------------------------------------|
 | name                   | string            |  null: false                          |
 | content                | text              |  null: false                          |
-| category               | string            |  null: false                          |
-| status                 | string            |  null: false                          |
-| postage                | string            |  null: false                          |
-| shipper                | string            |  null: false                          |
-| days_to_ship           | string            |  null: false                          |
+| category               | integer           |  null: false                          |
+| status                 | integer           |  null: false                          |
+| postage                | integer           |  null: false                          |
+| shipper                | integer           |  null: false                          |
+| days_to_ship           | integer           |  null: false                          |
 | price                  | integer           |  null: false                          |
 | user                   | references        |  null: false, foreign_key: true       |
-| buyer                  | references        |                                       |
+|                        |                   |                                       |
 
 ### Association
 - belongs_to : user
 - has_one :buyer
-
+- has_one :destination
 
 * buyersテーブル
+
+| Colum                  | Type              | Options                               |
+|------------------------|-------------------|---------------------------------------|
+| item                   | references        |  null: false, foreign_key: true       |
+| user                   | references        |  null: false, foreign_key: true       |
+|                        |                   |                                       |
+|                        |                   |                                       |
+
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :buyer
+
+* destinationsテーブル
 
 | Colum                  | Type              | Options                               |
 |------------------------|-------------------|---------------------------------------|
@@ -50,12 +64,9 @@
 | building_name          | string            |                                       |
 | phone number           | integer           |  null: false                          |
 | item                   | references        |  null: false, foreign_key: true       |
-| user                   | references        |  null: false, foreign_key: true       |
+| buyer                  | references        |  null: false, foreign_key: true       |
 |                        |                   |                                       |
 |                        |                   |                                       |
 
-### Association
-- belongs_to :user
+- belongs_to :buyer
 - belongs_to :item
-
-
