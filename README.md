@@ -57,7 +57,7 @@
 | postcode               | string            |  null: false                          |
 | prefecture_id          | integer           |  null: false                          |
 | municipalities         | string            |  null: false                          |
-| address                | integer           |  null: false                          |
+| address                | string            |  null: false                          |
 | building_name          | string            |                                       |
 | phone_number           | string            |  null: false                          |
 | buyer                  | references        |  null: false, foreign_key: true       |
