@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="NsGsgPFV5jDHcSEejqA0" name="ページ1">
-        <mxGraphModel dx="1109" dy="565" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1479" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -91,7 +91,7 @@
                 <mxCell id="49" value="destinations" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
                     <mxGeometry x="259" y="550" width="330" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="50" value="postcode             | integer           |  null: false &#10;prefecture           | string            |  null: false &#10;municipalities      | string            |  null: false &#10;address               | integer           |  null: false &#10;building_name     | string            | &#10;phone number     | integer           |  null: false &#10;buyer                   | references        |  null: false, foreign_key: true " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="49" vertex="1">
+                <mxCell id="50" value="postcode             | string |  null: false &#10;prefecture_id       | integer |  null: false &#10;municipalities      | string            |  null: false &#10;address               | string |  null: false &#10;building_name     | string            | &#10;phone_number     | string |  null: false &#10;buyer                   | references        |  null: false, foreign_key: true " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="49" vertex="1">
                     <mxGeometry y="30" width="330" height="170" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" value="" style="endArrow=none;html=1;rounded=0;strokeColor=default;" parent="1" edge="1">
