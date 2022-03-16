@@ -12,8 +12,7 @@
 | first_name_kana        | string            |  null: false                          |
 | last_name_kana         | string            |  null: false                          |
 | birthday               | date              |  null: false                          |
-|                        |                   |                                       |
-|                        |                   |                                       |
+
 
 ### Association
 - has_many :items
@@ -25,19 +24,18 @@
 |------------------------|-------------------|---------------------------------------|
 | name                   | string            |  null: false                          |
 | content                | text              |  null: false                          |
-| category               | integer           |  null: false                          |
-| status                 | integer           |  null: false                          |
-| postage                | integer           |  null: false                          |
-| shipper                | integer           |  null: false                          |
-| days_to_ship           | integer           |  null: false                          |
+| category_id            | integer           |  null: false                          |
+| status_id              | integer           |  null: false                          |
+| postage_id             | integer           |  null: false                          |
+| prefecture_id          | integer           |  null: false                          |
+| days_to_ship_id        | integer           |  null: false                          |
 | price                  | integer           |  null: false                          |
 | user                   | references        |  null: false, foreign_key: true       |
-|                        |                   |                                       |
+
 
 ### Association
-- belongs_to : user
+- belongs_to :user
 - has_one :buyer
-- has_one :destination
 
 * buyersテーブル
 
@@ -45,28 +43,24 @@
 |------------------------|-------------------|---------------------------------------|
 | item                   | references        |  null: false, foreign_key: true       |
 | user                   | references        |  null: false, foreign_key: true       |
-|                        |                   |                                       |
-|                        |                   |                                       |
+
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :buyer
+- has_one :destination
 
 * destinationsテーブル
 
 | Colum                  | Type              | Options                               |
 |------------------------|-------------------|---------------------------------------|
-| postcode               | integer           |  null: false                          |
-| prefectures            | string            |  null: false                          |
+| postcode               | string            |  null: false                          |
+| prefecture_id          | integer           |  null: false                          |
 | municipalities         | string            |  null: false                          |
 | address                | integer           |  null: false                          |
 | building_name          | string            |                                       |
-| phone number           | integer           |  null: false                          |
-| item                   | references        |  null: false, foreign_key: true       |
+| phone_number           | string            |  null: false                          |
 | buyer                  | references        |  null: false, foreign_key: true       |
-|                        |                   |                                       |
-|                        |                   |                                       |
+
 
 - belongs_to :buyer
-- belongs_to :item
