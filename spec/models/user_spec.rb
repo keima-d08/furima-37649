@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'passwordは半角英数字を含んでいないと登録できない' do
-      @user.password = '１１１１１１'
+      @user.password = '１１１ａｂｃ'
       @user.password_confirmation = @user.password
       @user.valid?
       expect(@user.errors.full_messages).to include('Password is invalid')
