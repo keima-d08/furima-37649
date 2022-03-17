@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
 
-  validates :name,             presence: true
-  validates :ontent,           presence: true
+  validates :name,             presence: true, length: { maximum: 40 }
+  validates :content,          presence: true, length: { maximum: 1000 }
   validates :category_id,      presence: true
   validates :status_id,        presence: true
   validates :postage_id,       presence: true
