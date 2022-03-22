@@ -5,7 +5,12 @@ class BuysController < ApplicationController
   end
 
   def create
-
+    @buy = Destination.new(destination_params)
+    if @buy.save
+      redirect_to root_path
+    else
+      render :index
+    end
   end
 
 end

@@ -10,7 +10,7 @@ class Destination < ApplicationRecord
   validates :address,           presence: true
   validates :building_name
   validates :phone_number,      presence: true, length: { maximum: 11 }, format: { with: VALID_PHONENUMBER_REGEX }
-
+  validates :buyer              presence: true
   belongs_to :buyer
 
   
