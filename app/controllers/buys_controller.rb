@@ -1,8 +1,15 @@
 class BuysController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @item = Item.find(params[:item_id])
     @buyer_destination = BuyerDestination.new
+    if @item.buyer.present?
+       redirect_to root_path
+    elsif
+      @item.user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
   def create
