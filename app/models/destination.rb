@@ -1,9 +1,6 @@
 class Destination < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
-  
-  
-  belongs_to :buyer
 
-  
+  belongs_to :buyer
 end
