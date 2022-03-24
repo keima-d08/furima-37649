@@ -5,6 +5,12 @@ RSpec.describe BuyerDestination, type: :model do
     @buyer_destination = FactoryBot.build(:buyer_destination)
   end
 
+  before do
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @buyer_destination = FactoryBot.build(:buyer_destination, user_id: user.id, item_id: item.id)
+  end
+
   describe '商品購入' do
     context '商品購入出来る時'
     it '決済に必要な情報が全て存在すれば登録できる' do
@@ -21,6 +27,12 @@ RSpec.describe BuyerDestination, type: :model do
       @buyer_destination.user_id = nil
       @buyer_destination.valid?
       expect(@buyer_destination.errors.full_messages).to include("User can't be blank")
+    end
+
+    it 'アイテムIDがないと購入できない' do
+      @buyer_destination.item_id = nil
+      @buyer_destination.valid?
+      expect(@buyer_destination.errors.full_messages).to include("Item can't be blank")
     end
 
     it 'クレジットカード情報が全て揃っていないと購入できない' do
@@ -77,10 +89,16 @@ RSpec.describe BuyerDestination, type: :model do
       expect(@buyer_destination.errors.full_messages).to include('Postcode is invalid')
     end
 
-    it '電話番号は-を含まない10桁以上11桁以内の数字でないと登録できない' do
+    it '電話番号は-を含まない10桁以上11桁以内の数字でないと購入できない' do
       @buyer_destination.phone_number = '111111111'
       @buyer_destination.valid?
       expect(@buyer_destination.errors.full_messages).to include('Phone number is too short (minimum is 10 characters)')
+    end
+
+    it '電話番号が12桁以上の数字では購入できない' do
+      @buyer_destination.phone_number = '11111111111111'
+      @buyer_destination.valid?
+      expect(@buyer_destination.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
     end
 
     it '電話番号が全角数字だと購入できない' do
