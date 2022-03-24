@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe BuyerDestination, type: :model do
-  before do
-    @buyer_destination = FactoryBot.build(:buyer_destination)
-  end
 
   before do
     user = FactoryBot.create(:user)
